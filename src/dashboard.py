@@ -26,15 +26,34 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+import sys
+
 BASE = Path(__file__).parent.parent
 DATA_DIR = BASE / "data"
 
+# Ensure src/ is on path so data_generation can be imported
+if str(Path(__file__).parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).parent))
+
 
 # ─── Load Data ────────────────────────────────────────────────────────────────
-@st.cache_data
+@st.cache_data(show_spinner="Generating dataset — first load takes ~60s...")
 def load_data():
-    users = pd.read_csv(DATA_DIR / "users.csv", parse_dates=["install_date"])
-    activity = pd.read_csv(DATA_DIR / "daily_activity.csv", parse_dates=["activity_date"])
+    users_path = DATA_DIR / "users.csv"
+    activity_path = DATA_DIR / "daily_activity.csv"
+
+    # Auto-generate data if CSVs don't exist (e.g. on Streamlit Cloud)
+    if not users_path.exists() or not activity_path.exists():
+        from data_generation import generate_user_table, generate_daily_activity, NUM_USERS
+        DATA_DIR.mkdir(exist_ok=True)
+        users = generate_user_table(NUM_USERS)
+        activity = generate_daily_activity(users)
+        users.to_csv(users_path, index=False)
+        activity.to_csv(activity_path, index=False)
+    else:
+        users = pd.read_csv(users_path, parse_dates=["install_date"])
+        activity = pd.read_csv(activity_path, parse_dates=["activity_date"])
+
     df = activity.merge(
         users[["user_id", "game", "country", "channel", "device",
                "is_paying", "install_date"]],

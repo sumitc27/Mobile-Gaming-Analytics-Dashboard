@@ -12,10 +12,6 @@ Metrics generated:
 - Country/channel segmentation
 """
 
-import sys
-import io
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
@@ -125,6 +121,8 @@ def generate_daily_activity(users: pd.DataFrame) -> pd.DataFrame:
 
 # ─── Main ─────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
+    import sys, io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
     print("[GAMING] Generating synthetic mobile gaming dataset...")
 
     print("  -> Generating user table...")

@@ -23,7 +23,7 @@ The dashboard is built to actually *use*, not just screenshot — it has sidebar
 ## Tech Stack
 
 | Layer | Tool | Why I Chose It |
-|---|---|---|
+| --- | --- | --- |
 | Data Generation | Python + NumPy | Full control over realistic distributions |
 | Analysis | Pandas + Matplotlib/Seaborn | Standard analytics stack, easy to version-control |
 | Interactive Dashboard | Streamlit + Plotly | Fast to build, output looks great, easy to share |
@@ -61,27 +61,31 @@ Project_1_Gaming_Dashboard/
 
 ---
 
-## Getting Started
+## How to Run Locally on you system
 
 **Clone and install:**
+
 ```bash
-git clone https://github.com/sumit-analytics/gaming-analytics-dashboard.git
+git clone https://github.com/sumitc27/gaming-analytics-dashboard.git
 cd Project_1_Gaming_Dashboard
 pip install -r requirements.txt
 ```
 
 **Generate the dataset:**
+
 ```bash
 python src/data_generation.py
 # Takes about 1-2 minutes. Generates users.csv + daily_activity.csv in data/
 ```
 
 **Run the analysis (saves charts to reports/):**
+
 ```bash
 python src/analysis.py
 ```
 
 **Launch the dashboard:**
+
 ```bash
 streamlit run src/dashboard.py
 # Opens at http://localhost:8501
@@ -94,10 +98,10 @@ streamlit run src/dashboard.py
 After running the full pipeline on the synthetic dataset:
 
 | Metric | Value | Benchmark | Status |
-|---|---|---|---|
-| D1 Retention | ~38–40% | 35–40% (casual games) | ✅ On track |
-| D7 Retention | ~15–18% | 15–20% (casual games) | ✅ On track |
-| Avg DAU | ~310 users | — | — |
+| --- | --- | --- | --- |
+| D1 Retention | \~38–40% | 35–40% (casual games) | ✅ On track |
+| D7 Retention | \~15–18% | 15–20% (casual games) | ✅ On track |
+| Avg DAU | \~310 users | — | — |
 | Paying User Rate | 5.1% | 2–7% (F2P games) | ✅ Healthy |
 | Daily ARPU | $0.12 | $0.05–0.15 (casual) | ✅ Good range |
 
@@ -111,15 +115,15 @@ After running the full pipeline on the synthetic dataset:
 
 The `sql/queries.sql` file has 12 production-style queries I wrote to answer specific business questions:
 
-1. Daily install trend + cumulative growth
-2. Install share by acquisition channel
-3. Geographic breakdown by game
-4. Cohort-based D1/D7/D14/D30 retention rates
-5. DAU, avg sessions, session length by date
-6. Engagement depth by game (sessions per user)
-7. User lifecycle segmentation (Active / At Risk / Churned)
-8. Daily revenue, ARPU, ARPPU
-9. Channel-level conversion and revenue (ROAS proxy)
+ 1. Daily install trend + cumulative growth
+ 2. Install share by acquisition channel
+ 3. Geographic breakdown by game
+ 4. Cohort-based D1/D7/D14/D30 retention rates
+ 5. DAU, avg sessions, session length by date
+ 6. Engagement depth by game (sessions per user)
+ 7. User lifecycle segmentation (Active / At Risk / Churned)
+ 8. Daily revenue, ARPU, ARPPU
+ 9. Channel-level conversion and revenue (ROAS proxy)
 10. Top revenue-generating games
 11. LTV estimation by channel
 12. Power user identification (top 10% by revenue)
@@ -130,7 +134,7 @@ The `sql/queries.sql` file has 12 production-style queries I wrote to answer spe
 
 > **Data is synthetically generated** — real mobile gaming data is proprietary and not publicly available.
 
-The simulation parameters (retention curves, paying user %, ARPU ranges, session distributions) are calibrated against publicly available industry benchmarks from AppsFlyer, GameAnalytics, and Adjust. Full methodology in [`data/README.md`](data/README.md).
+The simulation parameters (retention curves, paying user %, ARPU ranges, session distributions) are calibrated against publicly available industry benchmarks from AppsFlyer, GameAnalytics, and Adjust. Full methodology in `data/README.md`.
 
 ---
 
@@ -139,7 +143,7 @@ The simulation parameters (retention curves, paying user %, ARPU ranges, session
 - Cohort analysis is more nuanced than I expected — the "day since install" framing vs. calendar date framing gives very different pictures of retention
 - Writing SQL for retention analysis (the cohort CTE pattern) is significantly trickier than doing it in Pandas, but produces results that are easier to share with non-technical stakeholders
 - Streamlit's `@st.cache_data` decorator is essential — without it, every filter interaction reloads the entire 16k-row dataset
-- The DAU/MAU stickiness ratio (targeting >20%) is a better leading indicator of game health than raw DAU, since it normalizes for game scale
+- The DAU/MAU stickiness ratio (targeting &gt;20%) is a better leading indicator of game health than raw DAU, since it normalizes for game scale
 
 ---
 

@@ -19,7 +19,7 @@ data/*.csv
 # Generated charts (regenerate with analysis.py)
 reports/*.png
 
-# Streamlit
+# Streamlit (only ignore secrets — config.toml is needed for cloud deployment)
 .streamlit/secrets.toml
 
 # OS
