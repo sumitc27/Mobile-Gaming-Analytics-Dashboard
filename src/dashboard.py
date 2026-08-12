@@ -20,7 +20,7 @@ warnings.filterwarnings("ignore")
 
 # ─── Config ───────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="🎮 PlaySimple Gaming Analytics",
+    page_title="🎮 Mobile Gaming Analytics",
     page_icon="🎮",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -277,7 +277,7 @@ def main():
     # Header
     st.markdown("""
     <h1 style='text-align:center; color:#4361ee; font-size:2.5rem;'>
-        🎮 PlaySimple Gaming Analytics Dashboard
+        🎮 Mobile Gaming Analytics Dashboard
     </h1>
     <p style='text-align:center; color:gray; font-size:1.1rem;'>
         User Acquisition · Engagement · Retention · Monetization
@@ -322,7 +322,7 @@ def main():
     st.markdown("""
     <br>
     <p style='text-align:center; color:gray; font-size:0.85rem;'>
-        Built for PlaySimple Games BA Application | Sumit | 2025
+        Mobile Gaming Analytics Dashboard | Sumit | 2025
     </p>
     """, unsafe_allow_html=True)
 

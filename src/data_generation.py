@@ -2,7 +2,7 @@
 data_generation.py
 ==================
 Generates synthetic mobile gaming user data to simulate
-a PlaySimple-style casual word game analytics dataset.
+a casual word game analytics dataset.
 
 Metrics generated:
 - User installs across 90 days
@@ -27,7 +27,7 @@ NUM_USERS = 10_000
 SIMULATION_DAYS = 90
 START_DATE = datetime(2025, 1, 1)
 
-GAMES = ["Daily Themed Crossword", "WordTrip", "WordJam", "TileMatch"]
+GAMES = ["Word Quest", "Tile Blast", "Cross Grid", "Puzzle Rush"]
 COUNTRIES = ["India", "USA", "UK", "Canada", "Australia"]
 COUNTRY_WEIGHTS = [0.35, 0.30, 0.15, 0.10, 0.10]
 CHANNELS = ["Organic", "Facebook Ads", "Google UAC", "Apple Search Ads", "Referral"]

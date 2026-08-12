@@ -32,7 +32,7 @@ The synthetic data parameters are not made up — they are calibrated against **
 
 ## Data Generation Logic
 
-The synthetic dataset simulates **10,000 users** across a **90-day window** for a portfolio of 4 casual word games (modeled after games like Daily Themed Crossword, WordTrip, WordJam, TileMatch).
+The synthetic dataset simulates **10,000 users** across a **90-day window** for a portfolio of 4 casual word games (Word Quest, Tile Blast, Cross Grid, Puzzle Rush).
 
 ### User Table (`users.csv`)
 Each user has:

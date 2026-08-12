@@ -2,7 +2,7 @@
 
 An end-to-end analytics pipeline that I built to explore how product analysts at mobile gaming companies track user acquisition, engagement, retention, and monetization — the four pillars of any F2P game's health.
 
-I've been interested in how companies like PlaySimple, Dream11, and MPL make data-driven decisions about their game portfolios, and building this helped me understand *why* metrics like D7 retention and ARPU matter at an operational level, not just as definitions.
+I've been interested in how data-driven decisions get made in fast-growing mobile gaming companies, and building this helped me understand *why* metrics like D7 retention and ARPU matter at an operational level, not just as definitions.
 
 ---
 
@@ -34,7 +34,7 @@ The dashboard is built to actually *use*, not just screenshot — it has sidebar
 ## Project Structure
 
 ```
-Project_1_Gaming_Dashboard/
+Mobile-Gaming-Analytics-Dashboard/
 ├── data/
 │   ├── README.md              ← Data source & methodology (read this!)
 │   ├── users.csv              ← Generated: 10,000 users (gitignored, run script)
@@ -66,7 +66,7 @@ Project_1_Gaming_Dashboard/
 **Clone and install:**
 
 ```bash
-git clone https://github.com/sumitc27/gaming-analytics-dashboard.git
+git clone https://github.com/sumitc27/Mobile-Gaming-Analytics-Dashboard.git
 cd Project_1_Gaming_Dashboard
 pip install -r requirements.txt
 ```
@@ -147,4 +147,4 @@ The simulation parameters (retention curves, paying user %, ARPU ranges, session
 
 ---
 
-*Part of my data analytics portfolio. Built in August 2025.*
+*Author : @sumitc27 | Data Analyst*
